@@ -11,7 +11,7 @@ namespace APP.API.Controllers
 {
     [AuthorizeAttribute]
     [ApiController]
-    [Route("[Deneme]/[action]")]
+    [Route("[controller]/[action]")]
     public class AccountsController : ControllerBase
     {
         private readonly IUserService _userService;
