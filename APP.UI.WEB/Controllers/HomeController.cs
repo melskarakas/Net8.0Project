@@ -32,7 +32,7 @@ namespace APP.UI.WEB.Controllers
 
         public IActionResult Index(string p = "")
         {
-          
+
             return View();
         }
 
@@ -58,5 +58,10 @@ namespace APP.UI.WEB.Controllers
             return LocalRedirect(returnUrl);
         }
 
+        public IActionResult Test()
+        {
+            var localizedString = _localizer["HelloWorld"];
+            return Content(localizedString);
+        }
     }
 }
