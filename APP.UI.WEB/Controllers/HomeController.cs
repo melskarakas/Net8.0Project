@@ -58,10 +58,18 @@ namespace APP.UI.WEB.Controllers
             return LocalRedirect(returnUrl);
         }
 
+        [HttpGet]
         public IActionResult Test()
         {
             var localizedString = _localizer["HelloWorld"];
             return Content(localizedString);
+        }
+
+        [HttpPost]
+        public IActionResult Test(string Test)
+        {
+            var localizedString = _localizer["HelloWorld"];
+            return Content(localizedString + " - " + Test);
         }
     }
 }
