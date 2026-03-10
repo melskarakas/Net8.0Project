@@ -72,5 +72,18 @@ namespace APP.API.Controllers
                 return Problem(detail: "Genel Hata: " + ex.Message, statusCode: 500);
             }
         }
+        [HttpDelete]
+        public async Task<ObjectResult> Delete(Guid id)
+        {
+            try
+            {
+                var res = await _userService.Delete(id);
+                return Ok(res);
+            }
+            catch (Exception ex)
+            {
+                return Problem(detail: "Genel Hata: " + ex.Message, statusCode: 500);
+            }
+        }
     }
 }
