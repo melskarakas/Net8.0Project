@@ -78,7 +78,6 @@ namespace APP.API.Controllers
             try
             {
                 var res = await _userService.Delete(id);
-                //yorum satırı
                 return Ok(res);
             }
             catch (Exception ex)
