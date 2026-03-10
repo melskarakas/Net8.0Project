@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - develop
+      -test
 
 jobs:
   check-api-change:
@@ -13,7 +14,8 @@ jobs:
     steps:
       - name: Repo checkout
         uses: actions/checkout@v4
-
+        with:
+            fetch-depth: 0
       - name: Get changed files
         id: changes
         run: |
