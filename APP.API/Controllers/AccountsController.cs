@@ -79,8 +79,6 @@ namespace APP.API.Controllers
             {
                 var res = await _userService.Delete(id);
                 return Ok(res);
-                //yorum satırı eklendi
-                //deneme
             }
             catch (Exception ex)
             {
