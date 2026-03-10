@@ -79,7 +79,7 @@ namespace APP.API.Controllers
             {
                 var res = await _userService.Delete(id);
                 return Ok(res);
-                //
+                //deneme
             }
             catch (Exception ex)
             {
