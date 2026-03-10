@@ -1,0 +1,35 @@
+name: Protect APP.API
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  check-api-change:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Repo checkout
+        uses: actions/checkout@v4
+
+      - name: Get changed files
+        id: changes
+        run: |
+          git diff --name-only ${{ github.event.before }} ${{ github.sha }} > changed.txt
+          cat changed.txt
+
+      - name: Check APP.API changes
+        run: |
+          if grep -q "^APP.API/" changed.txt; then
+            echo "APP.API klasöründe değişiklik var."
+
+            if [ "${{ github.actor }}" = "ArmaganTambova" ]; then
+              echo "❌ ArmaganTambova APP.API klasörünü değiştiremez!"
+              exit 1
+            fi
+
+          else
+            echo "APP.API değişmedi."
+          fi
