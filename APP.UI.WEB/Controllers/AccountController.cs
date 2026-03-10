@@ -21,6 +21,7 @@ namespace APP.UI.WEB.Controllers
         public IActionResult Index()
         {
             users user = Operations.GET<users>($"Accounts/GetById?id={CurrentSession.userAuthInfo.id}");
+            //deneme
             return View(user);
         }
         public ActionResult Save(Guid id, string full_name, string email, string phone, string username, string current_pwd, string new_pwd)
